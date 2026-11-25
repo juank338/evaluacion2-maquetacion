@@ -5,7 +5,7 @@ Tema número: 5
 Tema: tienda de bicicletas "Bicicletas para subir montañas"
 Empresa: Pedal Andino
 
-Repositorio: https://github.com/juank338/evaluacion2-maquetacion
+Repositorio: https://github.com/juank338/evaluacion2-maquetacion.git
 Sitio publicado: https://juank338.github.io/evaluacion2-maquetacion/
 
 ## Resultado del verificador

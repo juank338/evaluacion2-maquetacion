@@ -1,11 +1,15 @@
 :root {
+  /* Exact brand palette for Empresa 5: Pedal Andino */
   --marca-primario: #0f5b5c;
   --marca-secundario: #f25c05;
   --marca-fondo: #f4f7f7;
   --marca-texto: #142022;
+
+  /* Brand typography */
   --marca-fuente: 'Roboto', sans-serif;
   --marca-fuente-titulos: 'Oswald', sans-serif;
 
+  /* Bootstrap 5.3 base variables mapped to brand variables */
   --bs-body-bg: var(--marca-fondo);
   --bs-body-color: var(--marca-texto);
   --bs-body-font-family: var(--marca-fuente);
@@ -13,152 +17,126 @@
   --bs-link-hover-color: var(--marca-secundario);
 }
 
-/* ==========================================================================
-   Tipografía y estructura general
-   ========================================================================== */
-html {
-  scroll-behavior: smooth;
-}
-
+/* Prevent horizontal overflow on small screens such as 360 px */
+html,
 body {
-  background-color: var(--bs-body-bg);
-  color: var(--bs-body-color);
-  font-family: var(--bs-body-font-family);
+  max-width: 100%;
   overflow-x: hidden;
 }
 
+/* Heading typography rule required by the manual */
 h1,
 h2,
 h3 {
   font-family: var(--marca-fuente-titulos);
-  color: var(--marca-texto);
+  letter-spacing: 0.02em;
 }
 
-/* Enlace de salto accesible */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 1rem;
+/* Clear, high-contrast keyboard focus indicator without removing focus rings */
+:focus-visible {
+  outline: 3px solid var(--marca-secundario);
+  outline-offset: 2px;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
   z-index: 2000;
-  padding: 0.5rem 1rem;
   background-color: var(--marca-primario);
   color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
 }
 
-.skip-link:focus,
-.skip-link:focus-visible {
-  top: 1rem;
-}
-
-/* ==========================================================================
-   Navbar y secciones (Presentación, Catálogo, Acerca de, Footer)
-   ========================================================================== */
+/* Navbar styling: primary color with light text */
 .navbar {
   background-color: var(--marca-primario);
 }
 
-.navbar .navbar-brand,
-.navbar .nav-link {
+.navbar .nav-link,
+.navbar .navbar-brand {
   color: #ffffff;
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus-visible {
-  color: var(--marca-secundario);
+  color: #ffe4d1;
 }
 
-.presentacion-seccion {
-  background-color: var(--marca-fondo);
-  border-bottom: 1px solid rgba(20, 32, 34, 0.12);
+/* Hero and about sections */
+.hero-section {
+  background-color: #e8efef;
+  border-bottom: 3px solid var(--marca-primario);
 }
 
-/* Botón principal de marca */
-.btn-primario-marca {
+.hero-img,
+.acerca-img {
+  max-height: 320px;
+  object-fit: cover;
+  border: 2px solid var(--marca-primario);
+}
+
+.acerca-section {
+  background-color: #e8efef;
+  border-top: 2px solid rgba(15, 91, 92, 0.2);
+}
+
+/* Primary action button customized with Bootstrap CSS variables */
+.btn-marca {
   --bs-btn-color: #ffffff;
   --bs-btn-bg: var(--marca-primario);
   --bs-btn-border-color: var(--marca-primario);
   --bs-btn-hover-color: #ffffff;
-  --bs-btn-hover-bg: #0b4546;
-  --bs-btn-hover-border-color: #0b4546;
+  --bs-btn-hover-bg: #0b4445;
+  --bs-btn-hover-border-color: #0b4445;
   --bs-btn-active-color: #ffffff;
-  --bs-btn-active-bg: var(--marca-secundario);
-  --bs-btn-active-border-color: var(--marca-secundario);
+  --bs-btn-active-bg: #083435;
+  --bs-btn-active-border-color: #083435;
+  border-radius: 0;
 }
 
-/* Botón de filtro personalizado con variables --bs-btn-* */
-.btn-filtro-pedal {
+/* Filter buttons customized with 3 or more --bs-btn-* variables */
+.btn-filtro {
   --bs-btn-color: var(--marca-primario);
+  --bs-btn-bg: #ffffff;
   --bs-btn-border-color: var(--marca-primario);
-  --bs-btn-bg: transparent;
   --bs-btn-hover-color: #ffffff;
   --bs-btn-hover-bg: var(--marca-primario);
   --bs-btn-hover-border-color: var(--marca-primario);
   --bs-btn-active-color: #ffffff;
   --bs-btn-active-bg: var(--marca-primario);
   --bs-btn-active-border-color: var(--marca-primario);
+  border-radius: 0;
 }
 
-.btn-filtro-pedal[aria-pressed="true"] {
+.btn-filtro.active,
+.btn-filtro[aria-pressed="true"] {
   background-color: var(--marca-primario);
-  border-color: var(--marca-primario);
   color: #ffffff;
+  border-color: var(--marca-primario);
 }
 
-/* Tarjetas del catálogo */
-#catalogo .card {
-  background-color: #ffffff;
-  color: var(--marca-texto);
-}
-
-#catalogo .card-img-top {
+/* Card styles for Pedal Andino: rounded-0 shadow-sm */
+.card-img-top {
   height: 200px;
   object-fit: cover;
-  max-width: 100%;
 }
 
 .badge-categoria {
   background-color: var(--marca-secundario);
   color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-weight: 500;
+  text-transform: lowercase;
 }
 
-.precio-destacado {
+.precio-item {
   color: var(--marca-primario);
-  font-weight: 700;
-  font-family: var(--marca-fuente-titulos);
+  font-size: 1.15rem;
 }
 
-#acerca img,
-.presentacion-seccion img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-footer {
+/* Footer with high contrast */
+.footer-marca {
   background-color: var(--marca-texto);
   color: #ffffff;
-}
-
-/* ==========================================================================
-   Foco visible obligatorio (sin outline: none) y ajuste móvil a 360 px
-   ========================================================================== */
-:focus-visible {
-  outline: 3px solid var(--marca-secundario);
-  outline-offset: 2px;
-}
-
-@media (max-width: 575.98px) {
-  .btn-group.filtros-grupo {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .btn-group.filtros-grupo > .btn {
-    flex: 1 1 auto;
-  }
 }

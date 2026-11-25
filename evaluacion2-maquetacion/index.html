@@ -4,44 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedal Andino</title>
-
-  <!-- Fuentes del manual: Oswald (títulos) y Roboto (cuerpo) -->
+  <!-- Google Fonts for Oswald (headings) and Roboto (body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500;700&display=swap">
-
-  <!-- Bootstrap 5.3 por CDN y luego estilos.css -->
+  <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom brand styles loaded after Bootstrap -->
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
+  <!-- Skip link for keyboard and screen reader accessibility -->
   <a class="visually-hidden-focusable skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Navegación principal">
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
       <div class="container">
-        <a class="navbar-brand" href="#">Pedal Andino</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#menuNavegacion"
-          aria-controls="menuNavegacion"
-          aria-expanded="false"
-          aria-label="Alternar navegación"
-        >
+        <a class="navbar-brand fw-bold" href="#">Pedal Andino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="menuNavegacion">
-          <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#seccion-catalogo">Catálogo</a>
+              <a class="nav-link" href="#catalogo-seccion">Catálogo</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#acerca">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#pie-pagina">Contacto</a>
+              <a class="nav-link" href="#contacto">Contacto</a>
             </li>
           </ul>
         </div>
@@ -50,68 +42,68 @@
   </header>
 
   <main id="contenido">
-    <!-- Presentación: dos columnas, texto/botón a la izquierda e imagen a la derecha -->
-    <section class="presentacion-seccion py-5" aria-labelledby="titulo-presentacion">
-      <div class="container">
+    <!-- Hero / Presentation section: two columns on desktop, text left and image right -->
+    <section class="hero-section py-5" aria-labelledby="titulo-principal">
+      <div class="container py-3">
         <div class="row align-items-center g-4">
           <div class="col-12 col-md-7">
-            <h1 id="titulo-presentacion" class="display-5 fw-bold">Bicicletas hechas para la montaña</h1>
-            <p class="lead mt-2 mb-4">Bicicletas para subir montañas</p>
-            <a href="#seccion-catalogo" class="btn btn-primario-marca btn-lg rounded-0">Ver catálogo</a>
+            <h1 id="titulo-principal" class="display-5 fw-bold mb-3">Bicicletas hechas para la montaña</h1>
+            <p class="lead mb-4">Bicicletas para subir montañas</p>
+            <a href="#catalogo-seccion" class="btn btn-marca btn-lg">Ver catálogo</a>
           </div>
           <div class="col-12 col-md-5">
-            <img src="img/presentacion-pedal-andino.jpg" alt="Ciclista recorriendo sendero de montaña en bicicleta" class="img-fluid rounded-0">
+            <img src="img/placeholder.svg" alt="Bicicleta de montaña en sendero andino de Pedal Andino" class="img-fluid w-100 hero-img">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Catálogo -->
-    <section id="seccion-catalogo" class="py-5" aria-labelledby="titulo-catalogo">
+    <!-- Catalog section: filters, search, sort, live counter, and dynamic cards grid -->
+    <section id="catalogo-seccion" class="py-5" aria-labelledby="titulo-catalogo">
       <div class="container">
-        <h2 id="titulo-catalogo" class="mb-4">Catálogo</h2>
+        <h2 id="titulo-catalogo" class="h2 fw-bold mb-4">Catálogo</h2>
 
-        <div class="row g-3 align-items-end mb-3">
+        <div class="row g-3 align-items-center mb-3">
           <div class="col-12 col-lg-auto">
-            <div class="btn-group filtros-grupo" role="group" aria-label="Filtrar por categoría">
-              <button type="button" class="btn btn-filtro-pedal" data-categoria="todas" aria-pressed="true">Todas</button>
-              <button type="button" class="btn btn-filtro-pedal" data-categoria="ruta" aria-pressed="false">Ruta</button>
-              <button type="button" class="btn btn-filtro-pedal" data-categoria="montana" aria-pressed="false">Montaña</button>
-              <button type="button" class="btn btn-filtro-pedal" data-categoria="urbana" aria-pressed="false">Urbana</button>
-              <button type="button" class="btn btn-filtro-pedal" data-categoria="accesorios" aria-pressed="false">Accesorios</button>
+            <div id="filtros-categoria" class="btn-group flex-wrap" role="group" aria-label="Filtrar por categoría">
+              <button type="button" class="btn btn-filtro active" data-categoria="todas" aria-pressed="true">Todas</button>
+              <button type="button" class="btn btn-filtro" data-categoria="ruta" aria-pressed="false">Ruta</button>
+              <button type="button" class="btn btn-filtro" data-categoria="montana" aria-pressed="false">Montaña</button>
+              <button type="button" class="btn btn-filtro" data-categoria="urbana" aria-pressed="false">Urbana</button>
+              <button type="button" class="btn btn-filtro" data-categoria="accesorios" aria-pressed="false">Accesorios</button>
             </div>
           </div>
 
-          <div class="col-12 col-md-6 col-lg">
-            <label for="buscador" class="form-label">Buscar</label>
-            <input type="search" id="buscador" class="form-control rounded-0" placeholder="Buscar por nombre o descripción...">
+          <div class="col-12 col-md-6 col-lg-4">
+            <label for="buscador" class="form-label visually-hidden">Buscar en el catálogo</label>
+            <input type="search" id="buscador" class="form-control" placeholder="Buscar por nombre o descripción...">
           </div>
 
-          <div class="col-12 col-md-6 col-lg-3">
-            <label for="orden" class="form-label">Ordenar por</label>
-            <select id="orden" class="form-select rounded-0">
-              <option value="nombre-asc">Nombre (A-Z)</option>
+          <div class="col-12 col-md-6 col-lg-3 ms-lg-auto">
+            <label for="orden" class="form-label visually-hidden">Ordenar elementos</label>
+            <select id="orden" class="form-select">
+              <option value="nombre-asc">Nombre (A - Z)</option>
               <option value="valor-asc">Precio: menor a mayor</option>
               <option value="valor-desc">Precio: mayor a menor</option>
             </select>
           </div>
         </div>
 
-        <p id="contador" class="mb-4 fw-medium" aria-live="polite">Mostrando 12 de 12</p>
+        <p id="contador" class="fw-medium mb-4" aria-live="polite">Mostrando 12 de 12</p>
 
         <div id="catalogo" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
       </div>
     </section>
 
-    <!-- Acerca de: dos columnas, imagen a la izquierda -->
-    <section id="acerca" class="py-5" aria-labelledby="titulo-acerca">
+    <!-- About section: two columns with image on the left -->
+    <section id="acerca" class="py-5 acerca-section" aria-labelledby="titulo-acerca">
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-12 col-md-6">
-            <img src="img/acerca-pedal-andino.jpg" alt="Taller de bicicletas y grupo de ciclistas de Pedal Andino" class="img-fluid rounded-0">
+            <img src="img/placeholder.svg" alt="Taller y equipo ciclista de Pedal Andino" class="img-fluid w-100 acerca-img">
           </div>
           <div class="col-12 col-md-6">
-            <h2 id="titulo-acerca" class="mb-3">Somos ciclistas</h2>
+            <h2 id="titulo-acerca" class="h2 fw-bold mb-3">Somos ciclistas</h2>
             <p class="mb-0">Pedal Andino es una tienda de ciclistas para ciclistas. Armamos, ajustamos y probamos cada bicicleta antes de entregarla, y salimos a rodar con nuestros clientes cada domingo.</p>
           </div>
         </div>
@@ -119,27 +111,32 @@
     </section>
   </main>
 
-  <footer id="pie-pagina" class="py-4 mt-4">
+  <footer id="contacto" class="py-4 footer-marca">
     <div class="container">
       <div class="row g-3">
-        <div class="col-12 col-md-6">
-          <p class="fw-bold mb-1">Pedal Andino</p>
-          <p class="mb-1">Carrera 7 n.º 22-15, Pereira</p>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p class="fw-bold mb-1">Dirección</p>
+          <p class="mb-0">Carrera 7 n.º 22-15, Pereira</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p class="fw-bold mb-1">Teléfono</p>
           <p class="mb-0">606 333 9090</p>
         </div>
-        <div class="col-12 col-md-6 text-md-end">
-          <p class="mb-1">Lunes a sábado de 8:00 a. m. a 7:00 p. m.</p>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p class="fw-bold mb-1">Horario</p>
+          <p class="mb-0">Lunes a sábado de 8:00 a. m. a 7:00 p. m.</p>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p class="fw-bold mb-1">Correo</p>
           <p class="mb-0">ventas@pedalandino.co</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Orden obligatorio: bundle de Bootstrap, datos.js y luego app.js -->
+  <!-- Bootstrap 5.3 bundle, data script, and application logic -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/datos.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
-```[cite: 3, 4, 5, 10, 11, 21, 22]
-
