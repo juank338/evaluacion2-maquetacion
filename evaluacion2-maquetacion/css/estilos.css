@@ -1,0 +1,164 @@
+:root {
+  --marca-primario: #0f5b5c;
+  --marca-secundario: #f25c05;
+  --marca-fondo: #f4f7f7;
+  --marca-texto: #142022;
+  --marca-fuente: 'Roboto', sans-serif;
+  --marca-fuente-titulos: 'Oswald', sans-serif;
+
+  --bs-body-bg: var(--marca-fondo);
+  --bs-body-color: var(--marca-texto);
+  --bs-body-font-family: var(--marca-fuente);
+  --bs-link-color: var(--marca-primario);
+  --bs-link-hover-color: var(--marca-secundario);
+}
+
+/* ==========================================================================
+   Tipografía y estructura general
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  font-family: var(--bs-body-font-family);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--marca-fuente-titulos);
+  color: var(--marca-texto);
+}
+
+/* Enlace de salto accesible */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  background-color: var(--marca-primario);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* ==========================================================================
+   Navbar y secciones (Presentación, Catálogo, Acerca de, Footer)
+   ========================================================================== */
+.navbar {
+  background-color: var(--marca-primario);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible {
+  color: var(--marca-secundario);
+}
+
+.presentacion-seccion {
+  background-color: var(--marca-fondo);
+  border-bottom: 1px solid rgba(20, 32, 34, 0.12);
+}
+
+/* Botón principal de marca */
+.btn-primario-marca {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: var(--marca-primario);
+  --bs-btn-border-color: var(--marca-primario);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: #0b4546;
+  --bs-btn-hover-border-color: #0b4546;
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: var(--marca-secundario);
+  --bs-btn-active-border-color: var(--marca-secundario);
+}
+
+/* Botón de filtro personalizado con variables --bs-btn-* */
+.btn-filtro-pedal {
+  --bs-btn-color: var(--marca-primario);
+  --bs-btn-border-color: var(--marca-primario);
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--marca-primario);
+  --bs-btn-hover-border-color: var(--marca-primario);
+  --bs-btn-active-color: #ffffff;
+  --bs-btn-active-bg: var(--marca-primario);
+  --bs-btn-active-border-color: var(--marca-primario);
+}
+
+.btn-filtro-pedal[aria-pressed="true"] {
+  background-color: var(--marca-primario);
+  border-color: var(--marca-primario);
+  color: #ffffff;
+}
+
+/* Tarjetas del catálogo */
+#catalogo .card {
+  background-color: #ffffff;
+  color: var(--marca-texto);
+}
+
+#catalogo .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.badge-categoria {
+  background-color: var(--marca-secundario);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.precio-destacado {
+  color: var(--marca-primario);
+  font-weight: 700;
+  font-family: var(--marca-fuente-titulos);
+}
+
+#acerca img,
+.presentacion-seccion img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer {
+  background-color: var(--marca-texto);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Foco visible obligatorio (sin outline: none) y ajuste móvil a 360 px
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--marca-secundario);
+  outline-offset: 2px;
+}
+
+@media (max-width: 575.98px) {
+  .btn-group.filtros-grupo {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .btn-group.filtros-grupo > .btn {
+    flex: 1 1 auto;
+  }
+}
